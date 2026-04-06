@@ -1,0 +1,46 @@
+{
+  "name": "emdrify",
+  "version": "1.0.0",
+  "description": "Electron-based bilateral stimulation visual + audio app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:web": "node scripts/build-web-release.js",
+    "release:exe": "electron-builder --win portable",
+    "release:all": "npm run build:web && npm run release:exe"
+  },
+  "keywords": [
+    "electron",
+    "emdr",
+    "audio",
+    "visual"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.emdrify.app",
+    "productName": "EMDRify",
+    "directories": {
+      "output": "release/desktop",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "styles.css",
+      "renderer.js",
+      "display-setup.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  }
+}
